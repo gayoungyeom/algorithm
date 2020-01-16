@@ -4,8 +4,8 @@ using namespace std;
 
 int main(){
 	queue<pair<int, int>> q;
-	int dx[4]={0,1,0,-1};
-	int dy[4]={1,0,-1,0};
+	int dx[4] = {0, 1, 0, -1};
+	int dy[4] = {1, 0, -1, 0};
 	int M, N;
 	int answer = 0;
 	bool flag = false;
@@ -15,7 +15,7 @@ int main(){
 	for(int i=0; i<N; i++){
 		for(int j=0; j<M; j++){
 			cin>>box[i][j];
-			if(box[i][j]==1) q.push({i,j});
+			if(box[i][j] == 1) q.push({i,j});
 		}
 	}
 
@@ -25,15 +25,15 @@ int main(){
 		q.pop();
 
 		for(int i=0; i<4; i++){
-			int next_x = x + dx[i];
-			int next_y = y + dy[i];
+			int nx = x + dx[i];
+			int ny = y + dy[i];
 
-			if(next_x < 0 || next_y < 0 || next_x >= N || next_y >= M) //경계 넘어가는 값 제어
+			if(nx < 0 || ny < 0 || nx >= N || ny >= M) //경계 넘어가는 값 제어
 				continue;
 
-			if(box[next_x][next_y] == 0){ //다음에 탐색하는 토마토가 덜 익은 경우
-				q.push({next_x, next_y});
-				box[next_x][next_y] = box[x][y] +1; //count
+			if(box[nx][ny] == 0){ //다음에 탐색하는 토마토가 덜 익은 경우
+				q.push({nx, ny});
+				box[nx][ny] = box[x][y] + 1; //count
 			}
 		}
 	}
@@ -47,9 +47,9 @@ int main(){
 	}
 
 	if(flag)
-		cout << -1 << endl;
+		cout<<-1<<endl;
 	else
-		cout << answer-1 <<endl;
+		cout<<answer - 1<<endl;
 
 	return 0;
 }
