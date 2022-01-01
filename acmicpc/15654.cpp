@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> v;
 vector<int> arr;
-bool visited[10001];
+bool visited[10]; //arr의 idx로 판단
 
 void backtrack(int n, int m){
 	if((int)v.size() == m){ //재귀 종료 조건
@@ -15,12 +15,11 @@ void backtrack(int n, int m){
 		return;
 	}
 	for(int i=0; i<n; i++){
-		int cur = arr[i];
-		if(!visited[cur]){
-			visited[cur] = true;
-			v.push_back(cur);
+		if(!visited[i]){
+			visited[i] = true;
+			v.push_back(arr[i]);
 			backtrack(n, m);
-			visited[cur] = false;
+			visited[i] = false;
 			v.pop_back();
 		}
 	}
