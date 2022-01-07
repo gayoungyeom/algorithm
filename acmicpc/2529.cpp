@@ -1,3 +1,4 @@
+//168ms 소요
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -55,4 +56,3 @@ int main(){
 	cout<<ans[0]<<'\n';
 	return 0;
 }
-
