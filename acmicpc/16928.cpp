@@ -56,8 +56,7 @@ int main(){
 		}
 	}
 
-	dist[1] = 0;
-	for(int i=2; i<101; i++) dist[i] = 100;
+	for(int i=1; i<101; i++) dist[i] = i-1;
 
 	bfs(1);
 
