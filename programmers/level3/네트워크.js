@@ -19,11 +19,28 @@ function solution(n, computers) {
             }
         }
     }
+
+    const bfs = (cur) => {
+        const q = [];
+        q.push(cur);
+        visited[cur] = true;
+        
+        while(q.length !== 0){
+            const x = q.shift();
+            for(let i = 0; i < graph[x].length; i++){
+                const next = graph[x][i];
+                if(!visited[next]){
+                    q.push(next);
+                    visited[next] = true;
+                }
+            }
+        }
+    }
     
     let cnt = 0;
     for(let i = 0; i < n; i++){
         if(!visited[i]){
-            dfs(i);
+            dfs(i); //or bfs(i);
             cnt++;
         }
     }
