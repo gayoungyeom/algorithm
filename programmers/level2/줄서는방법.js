@@ -11,14 +11,12 @@ function solution(n, k) {
     k--;
     
     while(result.length !== n){
-        const turn = fact[cur] / cur;
+        const turn = fact[--cur];
         const idx = ~~(k / turn);
         k %= turn;
         
         result.push(arr[idx]);
         arr.splice(idx, 1);
-        
-        cur--;
     }
     
     return result;
